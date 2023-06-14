@@ -3,6 +3,7 @@ import React, { useEffect, useState } from 'react'
 function Api1() {
 
     const [movies, setMovies] = useState([]);
+    const [input, setInput] = useState();
 
     const getMovies = () => {
         fetch("https://gitlab.com/gvanderput/gerard-movie-filtering/-/raw/master/data/movies.json", { method: "GET" })
@@ -12,14 +13,25 @@ function Api1() {
 
     useEffect(() => getMovies(), []);
 
-    //console.log(movies);
+    const updatedMovies = () => {
+        const filteredMovies = movies.filter((val, idx, arr) => val.year == input);
+        setMovies(filteredMovies);
+    }
 
     return (
         <div>
             <div>
                 <h1>Movie Data API</h1>
-                <input type="text" name="search" placeholder='Enter released year' />
-                <button>Search</button>
+                <input
+                    type="text"
+                    name="search"
+                    placeholder='Enter released year'
+                    id='search'
+                    value={input}
+                    onChange={(eve) => setInput(eve.target.value)}
+                />
+                <button onClick={() => updatedMovies()}>Search</button>
+                <button onClick={() => getMovies()}>Reset</button>
             </div>
             <br />
             <table>

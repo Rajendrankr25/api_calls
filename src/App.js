@@ -7,8 +7,8 @@ import Api4 from './components/Api4';
 function App() {
   return (
     <div className="App">
-      <Api1 />
-      {/* <Api2 /> */}
+      {/* <Api1 /> */}
+      <Api2 />
       {/* <Api3 /> */}
       {/* <Api4 /> */}
     </div>
