@@ -1,0 +1,12 @@
+API calls Examples : 
+
+https://gitlab.com/gvanderput/gerard-movie-filtering/-/raw/master/data/movies.json
+
+
+https://fakestoreapi.com/products
+
+
+https://jsonplaceholder.typicode.com/users
+
+
+https://thecocktaildb.com/api/json/v1/1/search.php?f=b
