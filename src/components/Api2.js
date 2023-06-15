@@ -3,6 +3,7 @@ import React, { useEffect, useState } from 'react'
 function Api2() {
 
     const [products, setProducts] = useState([]);
+    const [searchId, setSearchId] = useState('');
 
     const getProducts = () => {
         fetch("https://fakestoreapi.com/products", { method: "GET" })
@@ -12,18 +13,25 @@ function Api2() {
 
     useEffect(() => getProducts(), []);
 
-    console.log(products);
-
-    const searchProducts = (products) => {
-
+    const searchProductsById = () => {
+        const filteredProducts = products.filter((val, idx, arr) => val.id == searchId);
+        setProducts(filteredProducts);
     }
 
     return (
         <div>
             <h1>Fake Store API</h1>
             <div>
-                <input type="text" name="search" />
-                <button>Search</button>
+                <input
+                    type="text"
+                    name="id"
+                    placeholder='Enter product ID'
+                    id='id'
+                    value={searchId}
+                    onChange={(eve) => setSearchId(eve.target.value)}
+                />
+                <button onClick={() => searchProductsById()}>Search</button>
+                <button onClick={() => getProducts()}>Reset</button>
             </div>
             <br />
             <table className='productTable'>
@@ -54,14 +62,6 @@ function Api2() {
                     ))}
                 </tbody>
             </table>
-        </div>
-    )
-}
-
-function ProductList() {
-    return (
-        <div>
-
         </div>
     )
 }

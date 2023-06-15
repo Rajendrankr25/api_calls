@@ -3,7 +3,7 @@ import React, { useEffect, useState } from 'react'
 function Api1() {
 
     const [movies, setMovies] = useState([]);
-    const [input, setInput] = useState();
+    const [input, setInput] = useState('');
 
     const getMovies = () => {
         fetch("https://gitlab.com/gvanderput/gerard-movie-filtering/-/raw/master/data/movies.json", { method: "GET" })
