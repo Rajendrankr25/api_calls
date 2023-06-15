@@ -21,17 +21,16 @@ function App() {
 
 function Home() {
   return (
-    <div>
+    <div style={{ textAlign: "center" }}>
       <h1>API Learning Task</h1>
       <p>Please click below links for appropriate API's</p>
       <br />
-      <Link to={'/api1'} target='_blank'>API 1 - Movie Data API</Link>
-      <br />
-      <Link to={'/api2'} target='_blank'>API 2 - Fake Store API</Link>
-      <br />
-      <Link to={'/api3'} target='_blank'>API 3 - Users Data API</Link>
-      <br />
-      <Link to={'/api4'} target='_blank'>API 4 - Drinks Data API</Link>
+      <div className='links'>
+        <Link to={'/api1'} target='_blank'>API 1 - Movie Data API</Link>
+        <Link to={'/api2'} target='_blank'>API 2 - Fake Store API</Link>
+        <Link to={'/api3'} target='_blank'>API 3 - Users Data API</Link>
+        <Link to={'/api4'} target='_blank'>API 4 - Drinks Data API</Link>
+      </div>
     </div>
   )
 }
